@@ -1,0 +1,25 @@
+<div class ="container">
+  <button class = "panel panel-primary">
+    <div class="panel-heading">
+      Liste des Produits
+    </div>
+    <div class="panel panel-body">
+    <button class="btn btn-primary" (click)="onGetProducts()">Produits</button>
+  </div>
+<div class="panel-body">
+  <table *ngIf="produits">
+    <tr>
+      <th>ID</th>
+      <th>DESIGNATION</th>
+      <th>PRIX</th>
+      <th>QUANTITE</th>
+    </tr>
+    <tr *ngFor="let p of produits._embedded.produits">
+      <td>{{p.id}}</td>
+      <td>{{p.designation}}</td>
+      <td>{{p.prix}}</td>
+      <td>{{p.quantite}}</td>
+    </tr>
+  </table>
+</div>
+
