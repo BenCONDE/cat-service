@@ -6,17 +6,17 @@ import {NewProductComponent} from './new-product/new-product.component';
 
 const routes: Routes = [
   {
-    path: 'products',
+    path: "products",
     component : ProduitsComponent
   },
   {
-    path: 'new-product',
+    path: "new-product",
     component : NewProductComponent
   },
   {
-    path: '',
-    redirectTo : '/products',
-    pathMatch : 'full'
+    path: "",
+    redirectTo : "/products",
+    pathMatch : "full"
   }
 ];
 

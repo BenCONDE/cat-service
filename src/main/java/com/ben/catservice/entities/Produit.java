@@ -19,4 +19,16 @@ public class Produit implements Serializable {
     private String designation;
     private  double prix;
     private int quantite;
+
+    public Produit() {
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

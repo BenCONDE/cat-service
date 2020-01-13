@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {CatalogueService} from "../services/catalogue.service";
 
 @Component({
   selector: 'app-produits',
@@ -7,14 +8,14 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./produits.component.css']
 })
 export class ProduitsComponent implements OnInit {
-public produits: any;
-  constructor(private httpClient: HttpClient) { }
+public produits:any;
+  constructor(private catalogueService:CatalogueService) { }
 
   ngOnInit() {
   }
 
   onGetProducts() {
-    this.httpClient.get('http://localhost:8080/produits/').subscribe(
+    this.catalogueService.getProducts().subscribe(
       data => {
         this.produits = data;
       },err=>{
