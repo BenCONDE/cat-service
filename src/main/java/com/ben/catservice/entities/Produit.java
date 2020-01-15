@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-@Data @AllArgsConstructor @ToString @NoArgsConstructor
+@Data @AllArgsConstructor @ToString
 public class Produit implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
