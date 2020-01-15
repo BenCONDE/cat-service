@@ -4,23 +4,48 @@
     <div class="panel-heading">
       Liste des Produits
     </div>
+    <!--
     <div class="panel-body">
       <button class="btn btn-primary" (click)="onGetProducts()">Produits</button>
     </div>
+    -->
     <div class="panel-body">
-      <table *ngIf="produits" class="table table-striped">
-        <tr>
-          <th>ID</th>
-          <th>DES</th>
-          <th>PRIX</th>
-          <th>QTE</th>
-        </tr>
-        <tr *ngFor="let p of produits._embedded.produits">
+      <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+        <div class="form-group">
+          <label>Keyword : </label>
+          <input type = "text" name="keyword" ngModel>
+          <button class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span>
+            Chercher</button>
+        </div>
 
-          <td>{{p.designation}}</td>
-          <td>{{p.prix}}</td>
-          <td>{{p.quantite}}</td>
+      </form>
+      <table *ngIf = "produits" class="table">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">DES</th>
+          <th scope="col">PRIX</th>
+          <th scope="col">QUANTITE</th>
         </tr>
+        </thead>
+      <tbody>
+      <tr *ngFor = "let p of produits._embedded.produits">
+        <th scope="row">1</th>
+        <td>{{p.id}}</td>
+        <td>{{p.designation}}</td>
+        <td>{{p.prix}}</td>
+        <td>{{p.quantite}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="onDeleteProducts(p)">Supprimer</button>
+        </td>
+        <td>
+         <!-- <button class="btn btn-primary" (click)="onUpdateProducts(p)">Update</button> -->
+        </td>
+      </tr>
+      </tbody>
       </table>
     </div>
+
+<table>
 

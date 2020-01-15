@@ -35,7 +35,9 @@ public class ProduitRestServices {
         return produitRepository.save(produit);
     }
     //Pour enregistrer un produit
-    @PostMapping(value = "/listProduits")
+    @PostMapping(value = "/listProduits",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public Produit save(@RequestBody Produit produit) {
         return produitRepository.save(produit);
     }

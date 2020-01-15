@@ -1,1 +1,29 @@
-<h1>new produit component </h1>
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    Nouveau produit
+  </div>
+  <div class="panel panel-body">
+    <form #f="ngForm" (ngSubmit)="onSaveProduct(f.value)">
+      <div class="form-group">
+        <div class="form-group">
+          <label class="control-label">Designation</label>
+          <input class="form-control" type="text" name="designation" ngModel>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Prix</label>
+          <input class="form-control" type="text" name="prix" ngModel>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Quantite</label>
+          <input class="form-control" type="text" name="quantite" ngModel>
+        </div>
+
+          <button class="btn btn-primary">
+            <span class="glyphicon "></span>
+            Ajouter</button>
+        </div>
+    </form>
+      </div>
+</div>
+
+

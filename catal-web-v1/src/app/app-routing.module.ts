@@ -14,6 +14,7 @@ const routes: Routes = [
     component : NewProductComponent
   },
   {
+    //route par defaut
     path: "",
     redirectTo : "/products",
     pathMatch : "full"
