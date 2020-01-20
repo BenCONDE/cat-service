@@ -2,7 +2,7 @@
   <div class="panel panel-heading">
     Nouveau produit
   </div>
-  <div class="panel panel-body">
+  <div class="panel-body" *ngIf="mode==1">
     <form #f="ngForm" (ngSubmit)="onSaveProduct(f.value)">
       <div class="form-group">
         <div class="form-group">
@@ -24,6 +24,16 @@
         </div>
     </form>
       </div>
+  <div class="panel-body" *ngIf="mode==2">
+    <button class="btn btn-success" (click)="onNewProduct()">Nouveau Produit</button>
+  <p></p>
+    <div class="form-group">
+      <div><label>ID  {{currentProduct.id}}</label></div>
+      <div><label>Des {{currentProduct.designation}}</label></div>
+      <div><label>Quantite {{currentProduct.quantite}}</label></div>
+      <div><label>Prix {{currentProduct.prix}}</label></div>
+  </div>
+  </div>
 </div>
 
 

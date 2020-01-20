@@ -1,5 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import {CatalogueService} from "../services/catalogue.service";
+import {Router} from "@angular/router";
+import {Product} from "../models/Product";
+import {observable} from "rxjs";
 
 @Component({
   selector: 'app-new-product',
@@ -9,8 +12,10 @@ import {CatalogueService} from "../services/catalogue.service";
 export class NewProductComponent implements OnInit {
 
   public produits:any;
-  private router: any;
-  constructor(private catalogueService:CatalogueService) { }
+  private currentProduct: Object;
+  private mode: number =1;
+
+  constructor(private catalogueService:CatalogueService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -29,11 +34,17 @@ export class NewProductComponent implements OnInit {
   onSaveProduct(data:any) {
     this.catalogueService.saveRessource(this.catalogueService.host + "/produits",data).subscribe(
       data=>{
-       this.onSaveProduct(data);
+        //this.router.navigateByUrl("/")
+        this.currentProduct = data;
+        this.mode = 2;
       },error => {
         console.log(error);
       }
     )
 
+  }
+
+  onNewProduct() {
+    this.mode=1;
   }
 }

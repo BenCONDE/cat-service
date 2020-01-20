@@ -4,48 +4,55 @@
     <div class="panel-heading">
       Liste des Produits
     </div>
-    <!--
-    <div class="panel-body">
+
+   <!-- <div class="panel-body">
       <button class="btn btn-primary" (click)="onGetProducts()">Produits</button>
     </div>
-    -->
+-->
     <div class="panel-body">
       <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
         <div class="form-group">
-          <label>Keyword : </label>
+          <label>Chercher : </label>
           <input type = "text" name="keyword" ngModel>
-          <button class="btn btn-primary">
+          <button type="submit" class="btn btn-primary">
             <span class="glyphicon glyphicon-search"></span>
             Chercher</button>
         </div>
 
       </form>
-      <table *ngIf = "produits" class="table">
-        <thead>
+      <table *ngIf = "produits" class="table tab-content">
         <tr>
           <th scope="col">ID</th>
           <th scope="col">DES</th>
           <th scope="col">PRIX</th>
           <th scope="col">QUANTITE</th>
         </tr>
-        </thead>
+
+
       <tbody>
+
       <tr *ngFor = "let p of produits._embedded.produits">
-        <th scope="row">1</th>
         <td>{{p.id}}</td>
         <td>{{p.designation}}</td>
-        <td>{{p.prix}}</td>
+        <td>{{p.prix }}</td>
         <td>{{p.quantite}}</td>
         <td>
-          <button class="btn btn-danger" (click)="onDeleteProducts(p)">Supprimer</button>
+          <button class="btn btn-danger" (click)="onDeleteProduct(p)">Delete</button>
         </td>
         <td>
-         <!-- <button class="btn btn-primary" (click)="onUpdateProducts(p)">Update</button> -->
+         <button class="btn btn-success" (click)="onEditProduct(p)">Edit</button>
         </td>
       </tr>
       </tbody>
       </table>
+      <ul *ngIf ="pages" class=" nav nav-pills">
+        <li class="cliquable" [ngClass]="i==currentPage? 'active': ''" *ngFor ="let p of pages ; let i = index">
+        <a (click)="onPageProduct(i)">{{i}}</a>
+        </li>
+      </ul>
     </div>
 
-<table>
 
+
+</button>
+</div>
